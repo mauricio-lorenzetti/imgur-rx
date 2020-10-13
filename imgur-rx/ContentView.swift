@@ -2,33 +2,18 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var myList = ObservableArray<CardData>(array: [])
-        
-    //initialize ViewModel class which we will use to requests for data
-    let viewModel = ViewModel()
-
+    @ObservedObject var viewModel = ViewModel()
+    
     init() {
-        // pass viewupdateprotocol to viewmodel
-        self.viewModel.viewUpdate = self
+        viewModel.fetch()
     }
     
     var body: some View {
         
-        List(0..<5) { item in
-            CardView(card: CardData(imgUrl: "athenal", points: 120, comment_count: 70, favorite_count: 56))
+        List(viewModel.content) { item in
+            CardView(card: CardData(imgUrl: "athenal", points: (item.ups - item.downs), comment_count: item.commentCount, favorite_count: item.favoriteCount))
         }
     }
-}
-
-extension ContentView: ViewUpdateProtocol{
-    func appendData(list: [CardData]?) {
-        
-    }
-
-}
-
-protocol ViewUpdateProtocol{
-    func appendData(list: [CardData]?)
 }
 
 struct ContentView_Previews: PreviewProvider {

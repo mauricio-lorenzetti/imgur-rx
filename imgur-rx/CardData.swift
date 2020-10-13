@@ -1,6 +1,8 @@
 import Foundation
 
-struct CardData {
+struct CardData: Identifiable {
+    
+    var id = UUID()
     
     var imgUrl: String
     var points: Int

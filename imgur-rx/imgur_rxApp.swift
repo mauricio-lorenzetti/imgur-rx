@@ -1,10 +1,3 @@
-//
-//  imgur_rxApp.swift
-//  imgur-rx
-//
-//  Created by Mauricio Lorenzetti on 12/10/20.
-//
-
 import SwiftUI
 
 @main

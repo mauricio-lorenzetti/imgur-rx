@@ -1,35 +1,49 @@
 import Foundation
 import RxSwift
 
-class ViewModel {
+enum GalleryStatus {
+    case success
+    case loading
+    case error(error: Error)
+}
 
-  let repo : RepoProtocol
-  var viewUpdate: ViewUpdateProtocol? = nil
-  let disposeBag = DisposeBag()
+protocol MainGalleryViewModelProtocol {
+    func fetch()
+}
 
-  init (repo : RepoProtocol = Repository()){
-
-    self.repo = repo
-
-    // subscribe and start listening for changes in our data
-    self.repo.getDataArray().subscribe({ [weak self] newList in
-                                                      
-    }).disposed(by: disposeBag)
-
-  }
+class ViewModel: MainGalleryViewModelProtocol, ObservableObject {
     
+    let title = "Top Weekly"
 
-  func getNewItems(currentListSize: Int){
-
-    // fetch new list items
-    repo.fetchListItems(currentListSize: currentListSize)
-
-  }
-  
-  func updateListItems(newList: [CardData]?){
-    if newList != nil && !newList!.isEmpty{
-      // append new lists to the bottom of the list we already have
+    private let galleryRepository: GalleryRepositoryProtocol?
+    private let disposeBag = DisposeBag()
+    private let _state = BehaviorSubject<GalleryStatus>(value: .loading)
+    @Published var content = [GalleryContent]()
+    var state: Observable<GalleryStatus> { return _state.asObserver() }
+    
+    init(repository: GalleryRepositoryProtocol = GalleryRepository()) {
+        self.galleryRepository = repository
+        self.setup()
     }
-  }
+    
+    private func setup() {
+        galleryRepository?.state.subscribe(onNext: {
+            [weak self] (value) in
+            switch value {
+            case .success(content: let content):
+                self?.content.removeAll()
+                self?.content.append(contentsOf: content)
+                self?._state.onNext(.success)
+            case .loading:
+                self?._state.onNext(.loading)
+            case .error(error: let error):
+                self?._state.onNext(.error(error: error))
+            }
+        }, onError: {_ in }, onCompleted: {}, onDisposed: {})
+    }
+    
+    func fetch() {
+        galleryRepository?.fetch()
+    }
   
 }
