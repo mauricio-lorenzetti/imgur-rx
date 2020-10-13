@@ -29,9 +29,13 @@ struct CardView: View {
     
     var body: some View {
         VStack {
-            URLImage(URL(string: card.imgUrl)!, placeholder: Image(systemName: "circle"))
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 339, height: 178, alignment: .center)
+            URLImage(URL(string: card.imgUrl)!, placeholder: Image(systemName: "circle")) { proxy in
+                proxy.image
+                    .resizable()
+                    .clipped()
+                    .scaledToFill()
+            }
+            .frame(minWidth: 339, idealWidth: 339, maxWidth: 339, minHeight: 178, idealHeight: 178, maxHeight: 356, alignment: .top)
             HStack {
                 HStack() {
                     Text(String(card.points))
@@ -51,6 +55,6 @@ struct CardView: View {
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
         .padding([.top, .horizontal])
-        .frame(width: 339, height: 234)
+        .frame(minWidth: 339, idealWidth: 339, maxWidth: 339, minHeight: 234, idealHeight: 234, maxHeight: 702, alignment: .topLeading)
     }
 }
