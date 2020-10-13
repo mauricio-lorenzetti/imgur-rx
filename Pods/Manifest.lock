@@ -11,6 +11,7 @@ PODS:
   - RxRelay (5.1.0):
     - RxSwift (~> 5)
   - RxSwift (5.1.0)
+  - URLImage (0.9.19)
 
 DEPENDENCIES:
   - Alamofire (= 5.2)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - RxGesture (= 3.0.0)
   - RxRelay (= 5.1.0)
   - RxSwift (= 5.1.0)
+  - URLImage
 
 SPEC REPOS:
   trunk:
@@ -28,6 +30,7 @@ SPEC REPOS:
     - RxGesture
     - RxRelay
     - RxSwift
+    - URLImage
 
 SPEC CHECKSUMS:
   Alamofire: c1ca147559e730bfb2182c8c7aafbdd90a867987
@@ -36,7 +39,8 @@ SPEC CHECKSUMS:
   RxGesture: 0cd8e37ff9a266e1c31f46bcaed6de1c536bc81e
   RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
   RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  URLImage: 107320dff147321cceb201af24e8a154f24e6aed
 
-PODFILE CHECKSUM: e28d81774c8a09341a4f3ca396f815b804e07e10
+PODFILE CHECKSUM: a93b9f2d86ab02944825b4e85c6e11f66816367d
 
 COCOAPODS: 1.9.3

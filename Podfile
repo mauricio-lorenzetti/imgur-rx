@@ -9,5 +9,6 @@ target 'imgur-rx' do
   pod 'RxGesture', '3.0.0'
   pod 'Alamofire', '5.2'
   pod 'AlamofireImage', '4.1.0'
+  pod 'URLImage'
 
 end

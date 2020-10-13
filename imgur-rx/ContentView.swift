@@ -1,4 +1,5 @@
 import SwiftUI
+import URLImage
 
 struct ContentView: View {
     
@@ -11,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         
         List(viewModel.content) { item in
-            CardView(card: CardData(imgUrl: "athenal", points: (item.ups - item.downs), comment_count: item.commentCount, favorite_count: item.favoriteCount))
+            CardView(card: CardData(imgUrl: item.availableMediaLink, points: (item.ups - item.downs), comment_count: item.commentCount, favorite_count: item.favoriteCount))
         }
     }
 }
@@ -28,10 +29,9 @@ struct CardView: View {
     
     var body: some View {
         VStack {
-            Image(card.imgUrl)
-                .resizable()
+            URLImage(URL(string: card.imgUrl)!, placeholder: Image(systemName: "circle"))
                 .aspectRatio(contentMode: .fit)
- 
+                .frame(width: 339, height: 178, alignment: .center)
             HStack {
                 HStack() {
                     Text(String(card.points))
@@ -51,5 +51,6 @@ struct CardView: View {
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 1)
         )
         .padding([.top, .horizontal])
+        .frame(width: 339, height: 234)
     }
 }
