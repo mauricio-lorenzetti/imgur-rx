@@ -1,4 +1,6 @@
 import Foundation
+import UIKit
+import ImageIO
 
 public extension Data {
     func mapObject<T: Codable>(_ resultType: T.Type) -> T? {

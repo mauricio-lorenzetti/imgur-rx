@@ -11,6 +11,12 @@ PODS:
   - RxRelay (5.1.0):
     - RxSwift (~> 5)
   - RxSwift (5.1.0)
+  - SDWebImage (5.9.3):
+    - SDWebImage/Core (= 5.9.3)
+  - SDWebImage/Core (5.9.3)
+  - SDWebImageSwiftUI (1.5.0):
+    - SDWebImage (~> 5.7)
+  - SwiftyGif (5.3.0)
   - URLImage (0.9.19)
 
 DEPENDENCIES:
@@ -20,6 +26,9 @@ DEPENDENCIES:
   - RxGesture (= 3.0.0)
   - RxRelay (= 5.1.0)
   - RxSwift (= 5.1.0)
+  - SDWebImage
+  - SDWebImageSwiftUI
+  - SwiftyGif
   - URLImage
 
 SPEC REPOS:
@@ -30,6 +39,9 @@ SPEC REPOS:
     - RxGesture
     - RxRelay
     - RxSwift
+    - SDWebImage
+    - SDWebImageSwiftUI
+    - SwiftyGif
     - URLImage
 
 SPEC CHECKSUMS:
@@ -39,8 +51,11 @@ SPEC CHECKSUMS:
   RxGesture: 0cd8e37ff9a266e1c31f46bcaed6de1c536bc81e
   RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
   RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
+  SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
+  SDWebImageSwiftUI: 43687ffe232ddd33fe0659498b7ca9884fdd6b35
+  SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
   URLImage: 107320dff147321cceb201af24e8a154f24e6aed
 
-PODFILE CHECKSUM: a93b9f2d86ab02944825b4e85c6e11f66816367d
+PODFILE CHECKSUM: 7e33a1bdc165985e0c8897805848a6bed37172eb
 
 COCOAPODS: 1.9.3
