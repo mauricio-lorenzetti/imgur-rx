@@ -1,9 +1,8 @@
 import SwiftUI
 import URLImage
-import AVKit
-import SwiftyGif
 import SDWebImage
 import SDWebImageSwiftUI
+import VideoPlayer
 
 struct ContentView: View {
     
@@ -42,7 +41,7 @@ struct CardView: View {
     
     let myGray = UIColor(red: 0.28, green: 0.29, blue: 0.32, alpha: 1.00)
     var card : CardData
-    @State var isAnimating: Bool = true
+    @State private var play: Bool = true
     
     var body: some View {
         VStack {
@@ -60,22 +59,23 @@ struct CardView: View {
                 }
                 .frame(width: 339, height: 178, alignment: .top)
                 .clipped()
+                
             case .gif:
-                AnimatedImage(url: URL(string: card.imgUrl)!, isAnimating: $isAnimating)
+                AnimatedImage(url: URL(string: card.imgUrl)!, isAnimating: $play)
                     .maxBufferSize(.max)
                     .indicator(SDWebImageActivityIndicator.medium)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 339, height: 178, alignment: .top)
+                    .frame(width: 339, height: 178, alignment: .center)
                     .clipped()
                     
                     
             case .video:
-                VideoPlayer(player: AVPlayer(url: URL(string: card.imgUrl)!))
+                VideoPlayer(url: URL(string: card.imgUrl)!, play: $play)
+                    .autoReplay(true)
                     .scaledToFill()
-                    .frame(width: 339, height: 178, alignment: .top)
+                    .frame(width: 339, height: 178, alignment: .center)
                     .clipped()
-                    
                     
                     
             }

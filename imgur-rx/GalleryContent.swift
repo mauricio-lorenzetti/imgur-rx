@@ -15,7 +15,7 @@ struct GalleryContent: Codable, Identifiable {
     }
 
     var availableMediaLink: String {
-        return images?.first?.gifv ?? link //images?.first?.gifv ?? 
+        return images?.first?.link ?? link
     }
 
     var mediaType: MediaType? {

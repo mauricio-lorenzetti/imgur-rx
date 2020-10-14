@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		C70F4CA5253500130096A15A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70F4CA4253500130096A15A /* CustomError.swift */; };
 		C70F4CAA253500800096A15A /* GalleryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70F4CA9253500800096A15A /* GalleryResponse.swift */; };
 		C70F4CAF253500C20096A15A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70F4CAE253500C20096A15A /* Utils.swift */; };
+		C72781AE2537429900748AE1 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = C72781AD2537429900748AE1 /* VideoPlayer */; };
 		C769943B2534C5A900919EC6 /* imgur_rxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C769943A2534C5A900919EC6 /* imgur_rxApp.swift */; };
 		C769943F2534C5AC00919EC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C769943E2534C5AC00919EC6 /* Assets.xcassets */; };
 		C76994422534C5AC00919EC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C76994412534C5AC00919EC6 /* Preview Assets.xcassets */; };
@@ -83,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101477C705E280DDEADD40A9 /* Pods_imgur_rx.framework in Frameworks */,
+				C72781AE2537429900748AE1 /* VideoPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +221,9 @@
 			dependencies = (
 			);
 			name = "imgur-rx";
+			packageProductDependencies = (
+				C72781AD2537429900748AE1 /* VideoPlayer */,
+			);
 			productName = "imgur-rx";
 			productReference = C76994372534C5A900919EC6 /* imgur-rx.app */;
 			productType = "com.apple.product-type.application";
@@ -290,6 +295,9 @@
 				Base,
 			);
 			mainGroup = C769942E2534C5A900919EC6;
+			packageReferences = (
+				C72781AC2537429800748AE1 /* XCRemoteSwiftPackageReference "VideoPlayer" */,
+			);
 			productRefGroup = C76994382534C5A900919EC6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -710,6 +718,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C72781AC2537429800748AE1 /* XCRemoteSwiftPackageReference "VideoPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/VideoPlayer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C72781AD2537429900748AE1 /* VideoPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C72781AC2537429800748AE1 /* XCRemoteSwiftPackageReference "VideoPlayer" */;
+			productName = VideoPlayer;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C769942F2534C5A900919EC6 /* Project object */;
 }
