@@ -1,9 +1,5 @@
 import SwiftUI
 import URLImage
-<<<<<<< HEAD
-=======
-import SwiftyGif
->>>>>>> beff519e03bcc455c74ef8eb7857b11e2fd4780b
 import SDWebImage
 import SDWebImageSwiftUI
 import VideoPlayer
@@ -63,23 +59,13 @@ struct CardView: View {
                 }
                 .frame(width: 339, height: 178, alignment: .top)
                 .clipped()
-<<<<<<< HEAD
                 
             case .gif:
                 AnimatedImage(url: URL(string: card.imgUrl)!, isAnimating: $play)
                     .maxBufferSize(.max)
                     .indicator(SDWebImageActivityIndicator.medium)
                     .resizable()
-=======
-            case .gif,
-                 .video:
-                VideoPlayer(url: URL(string: card.imgUrl)!, play: $play)
->>>>>>> beff519e03bcc455c74ef8eb7857b11e2fd4780b
-                    .scaledToFill()
-                    .frame(width: 339, height: 178, alignment: .center)
-                    .clipped()
                     
-<<<<<<< HEAD
                     
             case .video:
                 VideoPlayer(url: URL(string: card.imgUrl)!, play: $play)
@@ -88,9 +74,6 @@ struct CardView: View {
                     .frame(width: 339, height: 178, alignment: .center)
                     .clipped()
                     
-                    
-=======
->>>>>>> beff519e03bcc455c74ef8eb7857b11e2fd4780b
             }
             
             HStack(spacing: 45.0) {
