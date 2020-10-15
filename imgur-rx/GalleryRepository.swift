@@ -10,6 +10,7 @@ enum GalleryRepositoryStatus {
 protocol GalleryRepositoryProtocol {
     var state: Observable<GalleryRepositoryStatus> { get }
     func fetch()
+    func fetch(page:Int)
 }
 
 class GalleryRepository: GalleryRepositoryProtocol {
@@ -33,6 +34,26 @@ class GalleryRepository: GalleryRepositoryProtocol {
                                                 albumPreviews: false)
 
         _api.get(url: resource.URLValue,
+                onSuccess: { [weak self] (data) in
+                    if let object = data.mapObject(GalleryResponse.self) {
+                        self?._state.onNext(.success(content: object.data))
+                        return
+                    }
+                    self?._state.onNext(.error(error: CustomError.mappingResponse))
+        })
+    }
+    
+    func fetch(page:Int) {
+        _state.onNext(.loading)
+
+        let resource = ImgurAPI.resourceURL.gallery(section: .top,
+                                                sort: .top,
+                                                window: .week,
+                                                showViral: false,
+                                                mature: false,
+                                                albumPreviews: false)
+
+        _api.get(url: resource.URLValue(page: page),
                 onSuccess: { [weak self] (data) in
                     if let object = data.mapObject(GalleryResponse.self) {
                         self?._state.onNext(.success(content: object.data))

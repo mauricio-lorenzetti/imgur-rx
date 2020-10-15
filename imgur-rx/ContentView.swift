@@ -3,10 +3,12 @@ import URLImage
 import SDWebImage
 import SDWebImageSwiftUI
 import VideoPlayer
+import SwiftUIRefresh
 
 struct ContentView: View {
     
     @ObservedObject var viewModel = ViewModel()
+    @State private var isShowing = false
     
     let myGray = UIColor(red: 0.28, green: 0.29, blue: 0.32, alpha: 1.00)
     
@@ -27,6 +29,12 @@ struct ContentView: View {
                         .navigationTitle("Top Weekly")
                 }
             }
+            .pullToRefresh(isShowing: $isShowing, onRefresh: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    viewModel.fetch()
+                    self.isShowing = false
+                }
+            })
         }
     }
 }
@@ -65,6 +73,9 @@ struct CardView: View {
                     .maxBufferSize(.max)
                     .indicator(SDWebImageActivityIndicator.medium)
                     .resizable()
+                    .frame(width: 339, height: 178, alignment: .center)
+                    .clipped()
+                    .scaledToFit()
                     
                     
             case .video:
@@ -109,7 +120,7 @@ struct CardView: View {
             RoundedRectangle(cornerRadius: 6)
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1), lineWidth: 2)
         )
-        .padding([.top, .horizontal])
+        .padding()
         .frame(width: 339, height: 234, alignment: .center)
     }
 }

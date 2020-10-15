@@ -10,6 +10,10 @@ This is a single view app for displaying top weekly imgur posts.
 - RxSwift
 - Alamofire
 - URLImage
+- SwiftyGif
+- SDWebImage
+- SDWebImageSwiftUI
+- SwiftUIRefresh
 
 ### Swift Packages dependencies
 - [VideoPlayer] (https://github.com/wxxsw/VideoPlayer)

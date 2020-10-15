@@ -45,5 +45,9 @@ class ViewModel: MainGalleryViewModelProtocol, ObservableObject {
     func fetch() {
         galleryRepository?.fetch()
     }
+    
+    func fetch(page:Int) {
+        galleryRepository?.fetch(page: page)
+    }
   
 }

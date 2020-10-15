@@ -13,5 +13,6 @@ target 'imgur-rx' do
   pod 'SwiftyGif'
   pod 'SDWebImage'
   pod 'SDWebImageSwiftUI'
+  pod 'SwiftUIRefresh'
 
 end

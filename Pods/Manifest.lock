@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.2.0)
   - AlamofireImage (4.1.0):
     - Alamofire (~> 5.1)
+  - Introspect (0.1.0)
   - RxCocoa (5.1.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -16,6 +17,8 @@ PODS:
   - SDWebImage/Core (5.9.3)
   - SDWebImageSwiftUI (1.5.0):
     - SDWebImage (~> 5.7)
+  - SwiftUIRefresh (0.0.3):
+    - Introspect (~> 0.1.0)
   - SwiftyGif (5.3.0)
   - URLImage (0.9.19)
 
@@ -28,6 +31,7 @@ DEPENDENCIES:
   - RxSwift (= 5.1.0)
   - SDWebImage
   - SDWebImageSwiftUI
+  - SwiftUIRefresh
   - SwiftyGif
   - URLImage
 
@@ -35,27 +39,31 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - Introspect
     - RxCocoa
     - RxGesture
     - RxRelay
     - RxSwift
     - SDWebImage
     - SDWebImageSwiftUI
+    - SwiftUIRefresh
     - SwiftyGif
     - URLImage
 
 SPEC CHECKSUMS:
   Alamofire: c1ca147559e730bfb2182c8c7aafbdd90a867987
   AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
+  Introspect: ad32f2b7b9e7ac2c008b9dfec3d5325fbd3660fa
   RxCocoa: 13d2a4d7546a34b8ececae8c281e4ea1dbb94f2b
   RxGesture: 0cd8e37ff9a266e1c31f46bcaed6de1c536bc81e
   RxRelay: a168bd6caf712d00c676ac344e9295afc93b418e
   RxSwift: ad5874f24bb0dbffd1e9bb8443604e3578796c7a
   SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
   SDWebImageSwiftUI: 43687ffe232ddd33fe0659498b7ca9884fdd6b35
+  SwiftUIRefresh: ca6ae2718d25aad5dd68bbf5d2ae36ef6ade98bf
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
   URLImage: 107320dff147321cceb201af24e8a154f24e6aed
 
-PODFILE CHECKSUM: 7e33a1bdc165985e0c8897805848a6bed37172eb
+PODFILE CHECKSUM: 05ed5711a12712e476a0e91f1d8cb387b94f4e79
 
 COCOAPODS: 1.9.3
